@@ -1,0 +1,48 @@
+<div style="text-align:end; padding: 10px;">
+  <!-- Botón para cuadrícula -->
+  <i style="font-size: 30px; margin-right: 30px; cursor: pointer; background-color: blue; padding: 15px; border-radius: 10%; color: aliceblue;"
+    class="fas fa-th" (click)="changeFormat('grid')" [ngClass]="{'active-format': !isListView}">
+  </i>
+
+  <!-- Botón para lista -->
+  <i style="font-size: 30px; margin-right: 30px; cursor: pointer; background-color: blue; padding: 15px; border-radius: 10%; color: aliceblue;"
+    class="fas fa-list" (click)="changeFormat('list')" [ngClass]="{'active-format': isListView}">
+  </i>
+</div>
+
+
+
+
+@if (isListView) {
+<div class="list-view;">
+  @for (p of productos; track p) {
+  <div class="col-md-12 mb-1 card shadow p-3 mb-5 bg-body-tertiary rounded">
+    <img [src]="p.img" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{p.name}}</h5>
+      <p class="card-text">{{p.description}}</p>
+      <p class="card-text"><small class="text-body-secondary">{{p.price}}</small></p>
+      <button (click)="addToCart(p)">Agregar al carrito</button>
+    </div>
+
+  </div>
+  }
+</div>
+} @else {
+<div class="card-group;">
+  <div class="row">
+    @for (p of productos; track p) {
+    <div class="card col-md-4 mb-1 shadow p-3 mb-5 bg-body-tertiary rounded">
+      <img [src]="p.img" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{p.name}}</h5>
+        <p class="card-text">{{p.description}}</p>
+        <p class="card-text"><small class="text-body-secondary">{{p.price}}</small></p>
+        <button (click)="addToCart(p)">Agregar al carrito</button>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+}

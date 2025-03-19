@@ -1,0 +1,19 @@
+.footer { 
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: medium;
+    font-weight: bold;
+}
+
+p {
+    margin: -1%;
+}
+
+.derechos { 
+    text-align: center;
+    margin: 1%;
+}
